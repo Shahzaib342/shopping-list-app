@@ -20,7 +20,7 @@ session_start();
             <h3>Store Information</h3>
             <fieldset>
                 <label class="store-info-labels">Store Name:</label>
-                <label><?php echo isset($_SESSION['store-information']['store-name']) ? $_SESSION['store-information']['store-name'] : '';?></label>
+                <label><?php echo isset($_SESSION['store-information']['store-name']) ? $_SESSION['store-information']['store-name'] : ''; ?></label>
             </fieldset>
             <fieldset>
                 <label class="store-info-labels">Street Address:</label>
@@ -39,15 +39,16 @@ session_start();
         <h3>Your Store items</h3>
         <ul class="a">
             <?php
-            if(isset($_SESSION['items'])) {
+            if (isset($_SESSION['items'])) {
                 foreach ($_SESSION['items'] as $item) {
                     ?>
                     <li><?php echo $item; ?> </li>
                     <?php
-                }}
+                }
+            }
             ?>
         </ul>
-        <a href="../index.php?clear=all">Clear all information</a>
+        <a href="../index.php?clear=all" class="back-to-home">Back to home</a>
     </div>
 </div>
 </body>

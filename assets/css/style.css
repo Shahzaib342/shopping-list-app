@@ -125,11 +125,11 @@ fieldset {
 }
 
 span.error {
-    color:red;
+  color:red;
 }
 
 .store-information {
-    display: none;
+  display: none;
 }
 
 .store-info-labels {
@@ -156,16 +156,25 @@ span.error {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, .5);
 }
 
+.submit-store-items {
+  padding: 6px 13px;
+}
+
+.back-to-home {
+  font-size: 14px;
+  margin-right: 34px;
+  color: #000;
+}
 .store-builder button {
   background: none;
   border: none;
   padding: 0!important;
   font: inherit;
-  /* border-bottom: 1px solid #444; */
   cursor: pointer;
   font-size: 12px;
-  color: blue;
+  color: #000;
   float: right;
+
 }
 ul.a {
   list-style-type: circle;

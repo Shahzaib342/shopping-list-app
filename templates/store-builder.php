@@ -2,7 +2,7 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if(isset($_POST['store-item'])) {
+    if (isset($_POST['store-item'])) {
         array_push($_SESSION['items'], $_POST['store-item']);
     }
 }
@@ -21,26 +21,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="container">
     <div class="store-builder">
-        <form id="store-builder" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <h3>Shopping List Builder</h3>
-        <fieldset>
-            <input placeholder="Enter item names" type="text" name="store-item" tabindex="4" required>
-        </fieldset>
-                <button name="submit" type="submit"  data-submit="...Sending">Add</button>
+        <form id="store-builder" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <h3>Shopping List Builder</h3>
+            <fieldset>
+                <input placeholder="Enter item names" type="text" name="store-item" tabindex="4" required>
+            </fieldset>
+            <button name="submit" type="submit" data-submit="...Sending">Add</button>
         </form>
 
-        <h3>Your item</h3>
+        <h3>Your items</h3>
         <ul class="a">
-        <?php
-        if(isset($_SESSION['items'])) {
-        foreach ($_SESSION['items'] as $item) {
-            ?>
-            <li><?php echo $item; ?> </li>
             <?php
-        }}
-        ?>
+            $flag = false;
+            if (isset($_SESSION['items'])) {
+                foreach ($_SESSION['items'] as $item) {
+                    $flag = true;
+                    ?>
+                    <li><?php echo $item; ?> </li>
+                    <?php
+                }
+            }
+            ?>
         </ul>
-        <a href="final-page.php">Submit</a>
+        <?php if ($flag == true) { ?>
+            <a class="push submit-store-items" href="final-page.php">Submit</a>
+        <?php } ?>
     </div>
 </div>
 </body>
